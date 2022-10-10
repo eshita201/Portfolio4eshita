@@ -4,5 +4,12 @@ const dotenv=require('dotenv');
 const app = express();
 dotenv.config({path:'config.env'})
 const PORT=process.env.PORT
+
 app.use( express.static(__dirname + '/dist/portfolio'));
+/*app.get('*', (req, res) => {
+    const path_site=path.join(__dirname, 'dist/portfolio/index.html');
+    console.log("dir ",path_site);
+    res.sendFile(path.join(__dirname, 'index.html'));    
+  });*/
+
 app.listen(PORT,()=>{console.log(`running on http://localhost:${PORT}`)});
